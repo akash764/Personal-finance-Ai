@@ -1,13 +1,6 @@
-import pandas as pd
+import datetime
 
-if st.button("Save My Data"):
-    df = pd.DataFrame([{
-        "Income": income,
-        "Fixed": fixed_expense,
-        "Food": food_expense,
-        "Travel": travel_expense,
-        "Other": other_expense,
-        "Savings": actual_savings
-    }])
-    df.to_csv("user_finance_data.csv", mode='a', index=False)
-    st.success("Saved successfully!")
+def save_user_data(income, expenses, savings):
+    with open("user_data.csv", "a") as f:
+        line = f"{datetime.date.today()},{income},{expenses['Fixed']},{expenses['Food']},{expenses['Travel']},{expenses['Other']},{savings}\n"
+        f.write(line)
