@@ -1,8 +1,13 @@
 import matplotlib.pyplot as plt
+import streamlit as st
 
-labels = ['Fixed', 'Food', 'Travel', 'Other']
-sizes = [fixed_expense, food_expense, travel_expense, other_expense]
+def show_expense_pie(expenses):
+    labels = list(expenses.keys())
+    sizes = list(expenses.values())
+    colors = ['#ff9999','#66b3ff','#99ff99','#ffcc99']
 
-fig, ax = plt.subplots()
-ax.pie(sizes, labels=labels, autopct='%1.1f%%')
-st.pyplot(fig)
+    fig, ax = plt.subplots()
+    ax.pie(sizes, labels=labels, colors=colors, startangle=90, autopct='%1.1f%%')
+    ax.axis('equal')  # Equal aspect ratio ensures pie chart is circular
+
+    st.pyplot(fig)
