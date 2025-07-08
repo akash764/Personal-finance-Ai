@@ -1,0 +1,10 @@
+import streamlit as st
+
+st.title("💰 AI Personal Finance Advisor")
+
+income = st.number_input("Enter your Monthly Income (₹)", min_value=1000)
+fixed_expense = st.number_input("Fixed Expenses (Rent, EMIs)", min_value=0)
+food_expense = st.number_input("Food & Groceries", min_value=0)
+travel_expense = st.number_input("Travel & Transport", min_value=0)
+other_expense = st.number_input("Other Expenses", min_value=0)
+savings_goal = st.number_input("Desired Monthly Savings", min_value=0)
