@@ -1,18 +1,17 @@
-def generate_advice(income, total_expense, savings_goal):
-    savings = income - total_expense
+def generate_advice(income, expenses, savings_goal):
+    savings = income - sum(expenses.values())
     advice = []
 
     if savings < savings_goal:
-        advice.append("You're saving less than your goal. Reduce discretionary expenses.")
-    if food_expense > 0.3 * income:
-        advice.append("Food expenses exceed 30% of income. Consider cooking at home.")
-    if actual_savings > 0.2 * income:
-        advice.append("Great! You're saving more than 20%. Consider investing in SIP or FD.")
-    if total_expense > 0.8 * income:
-        advice.append("You're spending more than 80% of your income. Try to cut non-essential costs.")
-    
-    return advice
+        advice.append("You're saving less than your goal. Consider cutting back on variable expenses.")
 
-st.subheader("🧠 Smart Advice")
-for tip in generate_advice(income, total_expense, savings_goal):
-    st.info(tip)
+    if expenses["Food"] > 0.3 * income:
+        advice.append("High food expenses detected. Cooking at home might help save money.")
+
+    if savings > 0.2 * income:
+        advice.append("Great job! You’re saving over 20% of your income. Consider investing the surplus.")
+
+    if sum(expenses.values()) > 0.8 * income:
+        advice.append("You're spending over 80% of your income. Try to reduce non-essential costs.")
+
+    return advice
