@@ -4,8 +4,8 @@ from finance_calculator import calculate_totals
 from visualizer import show_expense_pie
 from storage import save_user_data
 
-st.set_page_config(page_title="AI Personal Finance Advisor", page_icon="💰")
-st.title("💰 AI Personal Finance Advisor")
+st.set_page_config(page_title="AI Personal Finance Advisor")
+st.title("AI Personal Finance Advisor")
 
 st.sidebar.header("Enter Your Monthly Data")
 
@@ -26,11 +26,11 @@ if income > 0:
 
     total_expense, actual_savings = calculate_totals(income, expenses)
 
-    st.subheader("📊 Summary")
+    st.subheader("Summary")
     st.write(f"**Total Expense:** ₹{total_expense}")
     st.write(f"**Actual Savings:** ₹{actual_savings}")
 
-    st.subheader("🧠 AI Advice")
+    st.subheader("AI Advice")
     advice_list = generate_advice(income, expenses, savings_goal)
     if advice_list:
         for tip in advice_list:
@@ -38,12 +38,12 @@ if income > 0:
     else:
         st.success("You’re doing great! Your finances look good.")
 
-    st.subheader("📈 Expense Breakdown")
+    st.subheader("Expense Breakdown")
     show_expense_pie(expenses)
 
     if st.button("Save My Data"):
         save_user_data(income, expenses, actual_savings)
-        st.success("✅ Data saved successfully!")
+        st.success("Data saved successfully!")
 
 else:
-    st.warning("👈 Please enter your income and expenses to get advice.")
+    st.warning("Please enter your income and expenses to get advice.")
