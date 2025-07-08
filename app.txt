@@ -1,6 +1,6 @@
 import streamlit as st
 
-st.title("💰 AI Personal Finance Advisor")
+st.title("AI Personal Finance Advisor")
 
 income = st.number_input("Enter your Monthly Income (₹)", min_value=1000)
 fixed_expense = st.number_input("Fixed Expenses (Rent, EMIs)", min_value=0)
